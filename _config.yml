@@ -20,13 +20,13 @@
 
 title: STAT386 Blog # Make a title for your blog
 email: kayleedial@email.com # Add your email 
-description: >- # this means to ignore newlines until "baseurl:"
- Change the description so that it describes your blog
+description: #>- # this means to ignore newlines until "baseurl:"
+ Blog from a girl with high hopes and no credentials
 baseurl: "/my386blog" # keep this the same or change it to the name of the repository 
 url: "https://kayleedial.github.io" #  change this to "https://<your-github-username>.github.io"
-image: /assets/images/image5.jpg
+image: /assets/images/image6.jpeg
 author: Kaylee Dial
-copyright: KD # Your initials or what you want the copyright to be.  Leave empty for no copyright
+copyright: # Your initials or what you want the copyright to be.  Leave empty for no copyright
 
 # Social media users names.  Leave fields blank that you don't want displayed
 twitter_username: 
