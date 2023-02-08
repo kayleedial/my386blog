@@ -1,0 +1,112 @@
+# <b>Exploring Cinema Through Numbers</b>
+![image](imgs/oscars_image.webp)
+
+## Overview
+Come with me on a journey where we will set the groundwork for an analysis on the Academy Awards by working with multiple datasets.
+
+## Using Data to Answer the BIG Questions 
+With Academy Award nominations recently revealed and the award show airing next month, there is no better time to reflect on some of the big questions regarding cinema: 
+
+What makes a movie qualify for "best picture"? 
+
+Are there subconscious criteria that make a film worthy of awards? 
+
+How big of a factor is bias when deciding nominees and winners? 
+
+What kind of movies are excluded from these awards and why? 
+
+Should Jordan Peele have won best picture for <i>Get Out</i>???
+
+![image](imgs/GetOut.webp)
+
+<i>See the list of 2023 nominations [here](https://www.oscars.org/oscars/ceremonies/2023). </i>
+
+Some of our deepest questions about the awards are simply between the academy and God. But using data, we can figure out patterns, trends, and correlations that can help us answer the questions that keep us (me) up at night regarding award winning films.
+
+Though it pains me to say, we can't solve the world's mysteries regarding the academy's choices in just one blog. The purpose of this post will be to set up the data.
+
+This tutorial will go over some tools for working with multiple datasets by walking through an example using data from the Oscars and movies.
+
+## The Data
+We'll start by importing libraries and reading in a dataset.
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+oscars=pd.read_csv('data/the_oscar_award.csv')
+```
+I found an [Oscars dataset](https://www.kaggle.com/datasets/unanimad/the-oscar-award?select=the_oscar_award.csv) on Kaggle with the award category, year, film name, and award received (T/F) on nearly 7,000 nominated films from 1927-2023. This is useful, but it doesn't give much insight on the film itself. 
+
+The [Movies dataset](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv) on Kaggle has information on 45,000 movies. It tells us budget, titles, genres, and a text overview on the film. By using this information with insights from the Oscars dataset, we can set up a good foundation for analysis later on. 
+
+For our purposes, I'm going to focus on the title, budget, and overview columns.
+```
+movies = pd.read_csv("data/movies_metadata.csv")
+movies = movies[['original_title', 'budget', 'overview']]
+```
+## Helper Functions
+
+When working with a lot of data, it can be useful to build functions to understand the data deeper and figure out what's going on <i>behind the scenes</i> (respecting the movie theme). 
+
+Because we only want the movies that are found in both datasets, I want to create a unique list of all these entries so that I know how many movies, if any, are shared in the data.
+
+The function below:
+1. Creates an empty list
+2. Loops through all the titles in the movies dataset
+3. Checks if they are in the oscars dataset
+4. Checks if they were already put into the new list
+5. If steps 3 & 4 pass, adds them to the new list.
+
+```
+def get_same_vals(col1, col2):
+    same_films = []
+    for m in col1:
+        if m in list(col2):
+            if m not in same_films:
+                same_films.append(m)
+    return(same_films)
+
+get_same_vals(movies['original_title'], oscars['film'])
+```
+In the list we just created, we have 3,409 unique movies existing in both datasets. 
+
+## Merging the Datasets
+Next, I want to merge the datasets based on their titles to get a consolidated dataframe with information from both oscars and movies. I changed the column name of the movies dataset from "original_title" to "film", so it would match the column name on the Oscars dataset. 
+
+```
+movies['film'] = movies['original_title']
+movies = movies.drop('original_title', axis=1)
+```
+Before we merge, we need to handle missing values. If the key columns that we merge have NAs, it will match those missing values together. 
+
+The code below tells us that oscars has 304 NAs in the film column and movies has 954 for the overview column. We'll remove the NAs from title, since entries with no film titles aren't useful for us.
+```
+oscars.isna().sum()
+movies.isna().sum()
+
+oscars = oscars.dropna(axis=0)
+```
+Pandas has a function that makes merging dataframes simple: 
+- Input the two dataframes you want to merge 
+- Indicate how you want them to be merged (left, right, inner, outer, etc.) 
+- Input the column(s) you want to merge the datasets on 
+
+Find some documentation on the function [here](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
+
+Below I entered our two dataframes, indicated an 'inner' merge (the default), and that the merge will be on the 'film' column. This means that we will get a dataset with all titles found in both dataframes with all the information to go with those titles.
+```
+df_merge = pd.merge(oscars, movies, how='inner', on=['film'])
+```
+In this case, we merged on just one column. If, for example, the movies dataframe had a column for award categories that a movie won like the oscars dataset, we could merge on two columns. In that example, it would look like:
+
+```
+df_merge = pd.merge(oscars, movies, how='inner', on=[['film', 'category']])
+```
+Ideally, merges would happen on keys, not just movie titles. With datasets coming from different sources, the text could be formatted differently, and the merge wouldn't have worked the way we wanted it to. In our example, titles were formatted the same, so we were able to merge without these issues.
+
+## Leave a Comment
+These are some simple tricks to get us started on the wonderful journey of answering our deepest, darkest questions about award-winning cinema. Please leave a comment if you have thoughts or opinions on anything from this blog.
+
+<i>That's a wrap!</i>
