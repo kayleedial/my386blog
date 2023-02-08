@@ -1,5 +1,5 @@
 # <b>Exploring Cinema Through Numbers</b>
-![image](imgs/oscars_image.webp)
+![image](imgs/oscars.jpeg)
 
 ## Overview
 Come with me on a journey where we will set the groundwork for an analysis on the Academy Awards by working with multiple datasets.
