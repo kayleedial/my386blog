@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Book Review - "Weapons of Math Destruction""
+title:  "Book Review - Weapons of Math Destruction"
 author: Kaylee Dial
 description: My thoughts on Cathy O'Neil's "Weapons of Math Destruction"
 image: https://raw.githubusercontent.com/kayleedial/my386blog/main/assets/images/brbanner2.png
