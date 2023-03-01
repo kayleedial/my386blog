@@ -3,7 +3,7 @@ layout: post
 title:  "Book Review - "Weapons of Math Destruction""
 author: Kaylee Dial
 description: My thoughts on Cathy O'Neil's "Weapons of Math Destruction"
-image: https://raw.githubusercontent.com/kayleedial/my386blog/main/assets/images/brbanner.png
+image: https://raw.githubusercontent.com/kayleedial/my386blog/main/assets/images/brbanner2.png
 ---
 
 ["Weapons of Math Destruction"](https://www.penguinrandomhouse.com/books/241363/weapons-of-math-destruction-by-cathy-oneil/) by Cathy O'Neil is an eye-opening book that reveals how algorithms, which are designed to be unbiased, can actually be discriminatory towards certain groups of people. O'Neil provides several examples of "weapons of math destruction" in our society, including predictive policing, teacher evaluations, and credit scoring.
