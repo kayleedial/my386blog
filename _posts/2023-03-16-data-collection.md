@@ -2,11 +2,11 @@
 layout: post
 title:  "Data Collection - Oscars and Ratings"
 author: Kaylee Dial
-description: This blog post will go through the steps of creating a dataset built from Oscars data used in a previous post and web scraping techniques on the Rotten Tomatoes site. 
+description: Going through the steps of creating a dataset built from Oscars data and web scraping techniques on Rotten Tomatoes
 image: https://github.com/kayleedial/my386blog/raw/main/assets/images/eeaao_3.jpeg
 ---
 
-Since my last blog, I've had the pleasure of watching the 95th annual Oscars award show. The biggest winner of the night was undoubtedly <i>Everything Everywhere All At Once</i>, taking home seven Oscars, including best picture. I'm not sure what it was about the mother-daughter dynamics of a Chinese immigrant family and their story told via martial arts across multiple dimensions that made this the clear winner of best picture, but I'm in full support of the academy's choice on this one.
+Since my last blog, I've had the pleasure of watching the 95th annual Oscars award show. The biggest winner of the night was undoubtedly <i>Everything Everywhere All At Once</i>, taking home seven Oscars, including best picture. I'm not sure what it was about the mother-daughter dynamics of a Chinese immigrant family and their story told via martial arts across multiple dimensions that made this the clear winner of best picture, but I'm in full support of the academy's choice.
 
 ![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/eeaao_2.jpeg)
 
@@ -14,25 +14,26 @@ It does beg the question, what traits does this movie share with other best pict
 
 It can be tricky to predict something that feels so subjective. After all, this isn't actually about predicting the best movie of the year. It's about predicting what an exclusive group of fancy people in LA thought was the best movie of the year. 
 
-To make things interesting, I wanted to bring in a metric from a group of critics a little less fancy and arguably a little more in touch: Rotten Tomatoes. 
+To make things interesting, I wanted to bring in some metrics from a group of critics a little less fancy and arguably a little more in touch: Rotten Tomatoes. 
 ![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/rottom.png)
 
-In my [first blog](https://kayleedial.github.io/my386blog/2023/02/08/tutorial.html) I showed an example of merging datasets using historical academy awards data from kaggle (link it). I'll be using that dataset in conjunction with data gathered via webscraping on the [Rotten Tomatoes Website](https://www.rottentomatoes.com/). 
+In my [first blog](https://kayleedial.github.io/my386blog/2023/02/08/tutorial.html) I showed an example of merging datasets using historical academy awards data from Kaggle. I'll be using that dataset in conjunction with data gathered by webscraping the [Rotten Tomatoes Website](https://www.rottentomatoes.com/). 
 
 To ensure that the data was collected ethically and that good webscraping practices were followed, no urls were used that the [robots.txt](https://www.rottentomatoes.com/robots.txt) file disallowed (/search and /user/id/).
 
 
 The Oscars dataset I started out with looked like:
-![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/oscarsdf.png)
+![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/oscardf.png)
 
 I only wanted to consider best picture (or best motion picture) movies, so I filtered all other categories out of the dataset. 
 
 ```
-bp = oscars[(oscars['category'] == 'best picture') | (oscars['category'] == 'best motion picture')]
+bp = oscars[(oscars['category'] == 'best picture') | 
+                                (oscars['category'] == 'best motion picture')]
 ```
 I used libraries like [requests](https://pypi.org/project/requests/) and [Beautiful Soup](https://tedboy.github.io/bs4_doc/) to help me in the webscraping process. 
 
-Unfortunately, there wasn't a single list or webpage of every oscar nominee for best picture on Rotten Tomatoes. Instead, I had to collect the urls of any webpage of oscars data throughout the years that I could find. Instead of setting one link equal to url, I created a list of all the links. 
+Unfortunately, there wasn't a single list or webpage of every oscar nominee for best picture on Rotten Tomatoes over the years. Instead, I had to collect the URLs of any webpage of oscars-related data that I could find. Instead of setting one link equal to a variable 'url', I created a list of all the URLs. 
 ```
 url_list = ['https://editorial.rottentomatoes.com/guide/oscars-2023-best-picture-nominees/',
             'https://editorial.rottentomatoes.com/guide/2022-best-picture-nominees/', 
@@ -53,7 +54,7 @@ toms = pd.DataFrame(columns=['Title', 'Tomato Score', 'Year', 'Critic Review'])
 
 This is where the true webscraping happens. These six steps walk through the code below.
 
-1. The code starts by iterating through a list of URLs called url_list. For each URL in the list, it sends a GET request using the requests library and saves the response as a variable.
+1. The code starts by iterating through the list of URLs. For each URL in the list, it sends a GET request using the requests library and saves the response as a variable.
 
 2. The response object is then passed into the BeautifulSoup constructor. This creates a BeautifulSoup object, which holds the HTML content of the webpage.
 
@@ -98,16 +99,16 @@ tomats['Year'] = tomats['Year'].str.replace('(', '').str.replace(')', '')
 tomats['Critic Review'] = tomats['Critic Review'].str.replace('Critics Consensus: ', '')
 ```
 
-There were were five instances of a different movie with the same movie title found in the Rotten Tomatoes dataset. To handle this, I found the version that exists in the Oscars dataset, and removed the other version from the Rotten Tomatoes dataset. 
+There were were five instances that different movies had the same movie titles in the Rotten Tomatoes dataset. To handle this, I found which version existed in the Oscars dataset and removed the other version from the Rotten Tomatoes dataset. 
 
 Example:
 ```
 tomats[tomats['Title'] == 'Cleopatra']
 bp[bp['film'] == 'Cleopatra'] # it's only been a nominee once (1963/56% version)
-# remove the other version:
+
 tomats = tomats[~((tomats['Title'] == 'Cleopatra') & (tomats['Tomato Score'] == '82%'))]
 ```
-Once the cleaning was done, I changed Rotten Tomatoes' "Title" column to "film", and merged the two datasets on that column.
+Once the cleaning was done, I changed the Rotten Tomatoes dataset's "Title" column to "film", and merged the two datasets on that column.
 ```
 tomats['film'] = tomats['Title']
 tomats = tomats.drop('Title', axis=1)
@@ -123,7 +124,8 @@ df_m.loc[df_m['film'] == 'Everything Everywhere All at Once', 'winner'] = True
 The last five columns of our scraped, cleaned, and merged dataset looks like this:
 ![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/finaldf.png)
 
-The full dataset can be found [here](https://github.com/kayleedial/Blog-3a-data-collection/movies.csv)
-Conclusion: introduce the next part of the EDA, get them excited
+That concludes the first step in our Oscars data journey. I know you're not going to believe this, but that wasn't even the fun part! In my next blog, we'll be going over an exploratory data analysis of the dataset and attempt to answer some of the pressing questions about Oscar winners and nominees. 
 
-Link the repo
+As always, thank you for reading. If you have any feedback or questions, feel free to leave a comment below.
+
+The repository containing the code I used can be found [here](https://github.com/kayleedial/Blog-3a-data-collection).
