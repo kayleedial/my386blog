@@ -13,7 +13,7 @@ While there is some bias and personal preference when it comes to picking out th
  
 That being said, you would think that Rotten Tomato Critics and the Academy would be aligned on the movies they claim to be the best; if a movie were to get above 90% on Rotten Tomatoes, it's probably safe to assume that movie would get some nominations at the Oscars. 
 
-Well, suprise! That's not really the case. One of the biggest surprises from the Oscar nominations this year was that Mia Goth received no nominations for her performance in "Pearl" (2022). It got a 92% on Rotten Tomatoes, yet didn't get a single nomination in the 2023 Oscars Ceremony. 
+Well, suprise! That's not really the case. One of the biggest surprises from the Oscar nominations this year was that Mia Goth received no nominations for her performance in ["Pearl" (2022)](https://www.imdb.com/title/tt18925334/). It got a 92% on Rotten Tomatoes, yet didn't get a single nomination in the 2023 Oscars Ceremony. 
 
 Look at how scary this face is. You're really not going to give her a nomination, @Academy? Be real. 
 
