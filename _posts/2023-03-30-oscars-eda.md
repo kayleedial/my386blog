@@ -1,19 +1,19 @@
 ---
 layout: post
-title:  "Data Exploration - Oscars and Ratings"
+title:  "Data Exploration - Rotten Tomatoes versus the Academy"
 author: Kaylee Dial
-description: Exploring and visualizing Oscars Data
+description: Exploring and visualizing movies data
 image: https://github.com/kayleedial/my386blog/raw/main/assets/images/edabanner.png
 ---
 
 ## Overview
-Welcome to my third blog about Oscar winning movies. In this blog we'll be exploring and visualizing the dataset I curated in my last blog of Oscar movies and Rotten Tomato scores.
+This is my third blog post about Oscar movies and ratings. In this blog we'll be exploring and visualizing the dataset I curated in my last blog of Oscar movies and Rotten Tomato scores.
 
-While there is some bias and personal preference when it comes to picking out the best movies, we know that it's not completely subjective. Many people can agree that certain movies are terrible and certain movies are great. Just like how "Surf's Up" (2007) is an objectively better penguin movie than "Happy Feet" (2006), there are some qualities that make a movie better than another.
+While there is some bias and personal preference when it comes to picking out the best movies, we know that it's not completely subjective. Many people can agree that certain movies are terrible and certain movies are great. Just like how ["Surf's Up" (2007)](https://www.imdb.com/title/tt0423294/) is simply a better penguin movie than ["Happy Feet" (2006)](https://www.imdb.com/title/tt0366548/?ref_=fn_al_tt_1), there seem to be some qualities that make one movie better than another.
  
 That being said, you would think that Rotten Tomato Critics and the Academy would be aligned on the movies they claim to be the best; if a movie were to get above 90% on Rotten Tomatoes, it's probably safe to assume that movie would get some nominations at the Oscars. 
 
-Well, suprise! That's not really the case. One of the best actress performances I saw last year was from Mia Goth in "Pearl" (2022). It got a 92% on Rotten Tomatoes, yet didn't get a single nomination in the 2023 Oscars Ceremony. 
+Well, suprise! That's not really the case. One of the biggest surprises from the Oscar nominations this year was that Mia Goth received no nominations for her performance in "Pearl" (2022). It got a 92% on Rotten Tomatoes, yet didn't get a single nomination in the 2023 Oscars Ceremony. 
 
 Look at how scary this face is. You're really not going to give her a nomination, @Academy? Be real. 
 
@@ -54,11 +54,9 @@ This visual shows only the winners, with a few interesting outliers labeled.
 
 - "The Greatest Show on Earth" won best picture in 1953, yet got the lowest Rotten Tomatoes score of any winner in this dataset: 49%. 
 
-<center><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/africa.jpg" alt="Africa" width="500"/></center>
+<center><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/africa.jpg" alt="Africa" width="300"/><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/show.jpg" alt="Greatest Show" width="300"/></center>
 
-<center><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/show.jpg" alt="Greatest Show" width="500"/></center>
-
-When I first looked at the points for "Out of Africa" and "The Greatest Show on Earth", I thought that the discrepancy between the Academy and Rotten Tomatoes were due to the age of these movies. It would make sense that movie quality and criteria for good movies has changed over time. 
+When I first looked at the points for "Out of Africa" and "The Greatest Show on Earth", I thought that the discrepancy between the Academy and Rotten Tomatoes could've been due to how old these movies are. It would make sense that movie quality and criteria for good movies has changed over time. 
 
 To test this theory, I created the plot below that shows the average Tomato Score for winners over the years:
 
@@ -70,14 +68,16 @@ This made me interested to see where the highest Rotten Tomato Scores were given
 
 <center><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/top_scores.png" alt="Top Scores" width="500"/></center>
 
-In this dataset, there hasn't been a nomination that had 100% on Rotten Tomatoes since 1971. It makes me wonder if movies aren't as "good" as they used to be, or if the Rotten Tomato criteria has become more strict. Or maybe "the best" according to the Oscars versus Rotten Tomatoes is different from one another. 
+In this dataset, there hasn't been a nomination that had 100% on Rotten Tomatoes since 1971. It makes me wonder if movies aren't as "good" as they used to be, if the Rotten Tomato criteria has become more strict, or maybe "the best" according to the Oscars versus Rotten Tomatoes has grown more different from each other over time.
 
 This last visual shows a spread of the nominees versus the winners plotted with their Tomatoes score. 
 
 <center><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/boxes.png" alt="Boxplot" width="500"/></center>
 
-The mean for winners is a little higher for nominees, which is expectyed, but it's interesting that the max Tomato Score for nominees is higher than the max for winners.
+The mean for winners is a little higher for nominees, which I would expect. It's interesting that the maximum Tomato Score for nominees is higher than the maximum for winners. In this dataset, no Oscar best picture winner has a 100% on Rotten Tomatoes.
 
 ## Conclusion
 
-To wrap up, I found that the Rotten Tomatoes critics and the Academy like to have their own opinions on which movies are the best of the best. Though average Rotten Tomatoes scores for best picture winners oscilate, they have remained relatively level over the years. If you have any questions or want to talk about how awesome "Surf's Up" is, feel free to leave a comment. 
+To wrap up, I found that the Rotten Tomatoes critics and the Academy like to have their own opinions on which movies are the best of the best. Though average Rotten Tomatoes scores for best picture winners oscilate, they have remained relatively level over the years. If you have any questions, comments, or want to talk about "Surf's Up", feel free to leave a comment below.
+
+The repository containing the code I used to make these visuals can be found [here](https://github.com/kayleedial/Blog-3a-data-collection).
