@@ -53,7 +53,9 @@ This visual shows only the winners, with a few interesting outliers labeled.
 - "Out of Africa" won best picture at the 1986 Oscars, yet was given a low Rotten Tomatoes score of 61%.
 
 - "The Greatest Show on Earth" won best picture in 1953, yet got the lowest Rotten Tomatoes score of any winner in this dataset: 49%. 
-<img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/africa.jpg" alt="Africa", width="300"><img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/show.jpg" alt="Greatest Show", width="300">
+
+<img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/africa.jpg" alt="Africa", width="250">
+<img src="https://github.com/kayleedial/my386blog/raw/main/assets/images/show.jpg" alt="Greatest Show", width="250">
 
 When I first looked at the points for "Out of Africa" and "The Greatest Show on Earth", I thought that the discrepancy between the Academy and Rotten Tomatoes were due to the age of these movies. It would make sense that movie quality and criteria for good movies has changed over time. 
 
