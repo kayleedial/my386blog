@@ -17,7 +17,7 @@ By visualizing that information, I learned that what the academy believes to be 
 
 The last movie I saw that really made me feel something is [Puss in Boots: The Last Wish](https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish). I laughed, I felt joy, and a single tear fell from my eye, which feels crazy for an animated movie about warrior cats in boots. 
 
-[!Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/pussinboots.png)
+![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/pussinboots.png)
 
 Just because I thought the film was life-changing, that doesn't mean that it's everyone's experience. Rating a movie is tricky, because everyone has different standards for good. Is the criteria for a movie to make you laugh, to make you feel good, to make you think, to make you cry? Everyone has their own definition of the best, but when we're looking at two of the most well-known groups of critics, I imagine they probably have a more technical and methodical way of rating movies that somewhat standardizes the process. With that in mind, how aligned are these two groups in determining which movies are the best?
 
@@ -25,7 +25,7 @@ I wanted to summarize my findings with a visual that gives detail into the actua
 
 These are the best picture nominees from 2010-2023 with their Tomato Score indicated by the bars, and if they won the best picture indicated by color.
 
-![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/MovieScores.png)
+![Image](https://github.com/kayleedial/my386blog/raw/main/assets/images/MoviesScores.png)
 
 Are they aligned on their opinions of the best movies? The answer is a definite.. kinda. If they were totally aligned, the orange bars would be taking over the bottom section of the graph. It looks like the most common Tomato score to win best picture from 2010-2023 isn't 100%, or 99%, or 98%, but 94%. Moral of the story, "best" does not mean the best indefinitely, just the best according to a group of people.
 
