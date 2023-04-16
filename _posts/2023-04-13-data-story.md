@@ -32,4 +32,4 @@ This shows me that no matter how well-known and prestigious the group is, their 
 
 Thank you for coming on this journey with me through Rotten Tomatoes and Oscars data. If you take anything from this blog post, please just see <i>Puss in Boots: The Last Wish</i> if you haven't already. As always, feel free to leave a comment below if you have anything to add. 
 
-The visual was made using Tableau, and all other code from all previous blogs can be found is [this repository](https://github.com/kayleedial/Blog-3a-data-collection).
+The visual was made using Tableau, and all other code from all previous blogs can be found in [this repository](https://github.com/kayleedial/Blog-3a-data-collection).
